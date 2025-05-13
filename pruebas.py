@@ -29,7 +29,7 @@ import ahorcado as fc
 
 #Pruebas countWords
 
-a = input("Ingrese una frase: ")
-b = input("Ingrese el separador entre las palabras: ") 
-c = fc.countWords(a, b)
-print(c)
+#a = input("Ingrese una frase: ")
+#b = input("Ingrese el separador entre las palabras: ") 
+#c = fc.countWords(a, b)
+#print(c)
