@@ -47,3 +47,10 @@ import ahorcado as fc
 #b = fc.pickWord(superheroes, ", ")
 #print(b)
 
+#Pruebas obtainGuessedWord()
+
+#a = fc.obtainGuessedPart("perro", "aEiousp")
+#print(a)
+
+b = fc.obtainGuessedPart("Salvaje", "bsucbshcjs,jcblsiE")
+print(b)

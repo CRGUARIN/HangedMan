@@ -66,10 +66,10 @@ def inputSecret():
     '''
     
     # Cuerpo de la función
-    abc = "aábcdeéfghiíjklmnñoópqrstuúüvwxyzAÁBCDEÉFGHIÍJKLMNÑOÓPQRSTUÚÜVWXYZ"
+    abc = "abcdefghijklmnopqrstuvwxyz"
     
     while True:
-        secret = input("Ingrese la palabra o frase oculta: ")
+        secret = input("Ingrese la palabra o frase oculta: ").lower()
         if all(letra in abc for letra in secret) and secret != "":
             return secret
         else:
@@ -200,5 +200,45 @@ def pickWord(a, b):
                 word = ""
         i = i + 1
     return word
+
+def obtainGuessedPart(word,attemps):
+    '''
+    Firma:
+        (string,string) -> (string)
+        
+    Sinopsis:
+        Imprime la parte de la cadena que ha sido adivinada.  
+        
+    Entradas y salidas:
+        - palabraSecreta: string, palabra que el usuario esta adivinando
+        - letrasIntentadas: string, letras intentadas por el usuario para adivinar la palabra
+        - returns: string, compuesto de letras y caracteres raya bajo que representan las letras aun no adivinadas
+        
+    Ejemplos de uso:
+        >>> palabraSecreta = 'perro'
+        >>> letrasIntentadas = 'aeiousp'
+        >>> print obtenerParteAdivinada(palabraSecreta, letrasIntentadas)
+        'p e _ _ o'
+        
+        >>> obtenerParteAdivinada('frodo', '')
+        '_ _ _ _ _'  
+    '''
+    l = len(word)
+    word = word.lower()
+    attemps = attemps.lower()
+    i = 0
+    temp = ""
+    result = ""
+    first = True
+    while i < l:
+        temp = word[i]
+        if temp in attemps:
+            result = result + temp + " "
+            if first and i == 0:
+                result = result.upper()
+        else:
+            result = result + "_" + " "
+        i = i+1
+    return result
 
 
