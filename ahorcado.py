@@ -66,8 +66,14 @@ def inputSecret():
     '''
     
     # Cuerpo de la función
-    secret = input("Ingrese la palabra o frase oculta: ")
-    return secret
+    abc = "aábcdeéfghiíjklmnñoópqrstuúüvwxyzAÁBCDEÉFGHIÍJKLMNÑOÓPQRSTUÚÜVWXYZ"
+    
+    while True:
+        secret = input("Ingrese la palabra o frase oculta: ")
+        if all(letra in abc for letra in secret) and secret != "":
+            return secret
+        else:
+            print("Entrada inválida. Intente de nuevo.")
 
 def loadWords(a):
     '''
@@ -121,8 +127,78 @@ def countWords(a, b):
         >>> countWords('gallo-gallina','-')
         2
     '''
-    divided = a.split(b)
-    quantity = len(divided)
-    return quantity
+    if b != ",":
+        c = b.replace(b, ",")    
+        a = a.replace(b, c) + c
+    else:
+        c = b
+        a = a + c
+    l = len(a)
+    i = 0
+    count = 0
+    while i < l:
+        temp = a[i]
+        if temp == c:
+            count = count + 1
+        i = i + 1
+    return count
+
+def pickWord(a, b):
+
+    '''
+    Firma:
+        (string,string) -> (string)
+        
+    Sinopsis:
+        Función que permite seleccionar una palabra o frase secreta correspondiente a una posicion 
+        dada de un conjunto de palabras separadas por un delimitador.  
+    
+    Entradas y salidas:
+        - palabras: Conjunto de palabras o frases secretas separadas por un delimitador
+        - separador: Delimitador que separa una palabra o frase secreta de otra
+    
+    Salidas
+        - returns: Palabra o frase de la posiciónon elegida
+        
+    Ejemplos de uso:
+        >>> x = 'homero_marge_bart_lisa_maggie' 
+        >>> pickWord(x,'_')
+        'homero'
+        
+        >>> palabra = pickWord('marcos, lucas, mateo, juan',',')
+        >>> print(palabra)
+        'mateo'
+        
+    '''
+    import random as rd
+    
+    c = ""
+    if b != ",":
+        c = b.replace(b, ",")
+        a = a.replace(b, c)
+        a = a + c
+    else:
+        a = a + c
+        c = b
+    
+    option = rd.randint(0, countWords(a,c))
+    l = len(a)
+    i = 0
+    temp = ""
+    count = 0
+    word = ""
+    
+    while i < l:
+        temp = a[i]
+        if temp != c:
+            word = word + temp
+        elif temp == c:
+            count = count + 1
+            if count - 1 == option:                    
+                break
+            else:
+                word = ""
+        i = i + 1
+    return word
 
 

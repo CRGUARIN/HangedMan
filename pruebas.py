@@ -33,3 +33,17 @@ import ahorcado as fc
 #b = input("Ingrese el separador entre las palabras: ") 
 #c = fc.countWords(a, b)
 #print(c)
+
+#e = input("Ingrese una frase: ")
+#f = input("Ingrese el separador entre las palabras: ")
+#g = fc.countWords(e, f)
+#print(g)
+
+#Puebas pickWord
+
+a = fc.pickWord("Hola,Cómo,Estás", ",")
+print(a)
+
+#b = fc.pickWord(superheroes, ", ")
+#print(b)
+
