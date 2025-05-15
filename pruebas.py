@@ -52,5 +52,10 @@ import ahorcado as fc
 #a = fc.obtainGuessedPart("perro", "aEiousp")
 #print(a)
 
-b = fc.obtainGuessedPart("Salvaje", "bsucbshcjs,jcblsiE")
-print(b)
+#b = fc.obtainGuessedPart("Salvaje", "bsucbshcjs,jcblsiE")
+#print(b)
+
+#Pruebas obtainAvaliableLetters
+
+a = fc.obtainAvaliableLetters("Abfs")
+print(a)

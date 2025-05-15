@@ -12,9 +12,10 @@ def printIntro(fileName):
         Función que imprime el contenido de un archivo de texto
         en la consola.
         
-    Entradas y salidas:
+    Entradas:
         - filename: string que contiene el nombre del archivo a imprimir
         (preferiblemente escriba la ruta absoluta del archivo)
+    Salidas:    
         - returns: None
         
     Ejemplos de uso:
@@ -52,8 +53,9 @@ def inputSecret():
     Sinopsis:
         Función que solicita al usuario la palabra secreta
         
-    Entradas y salidas:
+    Entradas:
         - inputs: None
+    Salidas:    
         - returns: string con la palabra secreta ingresada por el usuario
         
     Ejemplos de uso:
@@ -84,8 +86,9 @@ def loadWords(a):
         Función que solicita el nombre de un archivo cualquiera y devuelve una cadena 
         de caracteres con su contenido
         
-    Entradas y salidas:
+    Entradas: 
         - filename: string que contiene el nombre del archivo con las palabras secretas
+    Salidas:
         - returns: string con todas las palabras secretas
         
     Ejemplos de uso:
@@ -114,9 +117,10 @@ def countWords(a, b):
     Sinopsis:
         Función que cuenta la cantidad de palabras disponibles en una cadena
         
-    Entradas y salidas:
+    Entradas:
         - palabras: Conjunto de palabras o frases separadas por un delimitador
         - separador: Delimitador que separa una palabra o frase de otra dentro de la cadena de entrada (palabras)
+    Salidas:
         - returns: cantidad de palabras secretas
         
     Ejemplos de uso:
@@ -209,9 +213,10 @@ def obtainGuessedPart(word,attemps):
     Sinopsis:
         Imprime la parte de la cadena que ha sido adivinada.  
         
-    Entradas y salidas:
+    Entradas:
         - palabraSecreta: string, palabra que el usuario esta adivinando
         - letrasIntentadas: string, letras intentadas por el usuario para adivinar la palabra
+    Salidas:
         - returns: string, compuesto de letras y caracteres raya bajo que representan las letras aun no adivinadas
         
     Ejemplos de uso:
@@ -241,4 +246,36 @@ def obtainGuessedPart(word,attemps):
         i = i+1
     return result
 
-
+def obtainAvaliableLetters(attemps):
+    '''
+    Firma:
+        (string) -> (string)
+        
+    Sinopsis:
+        Devuelve las letras que no se han empleado en los turnos.  
+        
+    Entradas:
+        - letrasIntentadas: string, letras intentadas por el usuario para adivinar la palabra
+    Salidas    
+        - returns: string, compuesto de letras que no han sido ingresado
+        
+    Ejemplos de uso:
+        >>> letrasIntentadas = 'abfs'
+        >>> print obtenerLetrasDisponibles(letrasIntentadas)
+        cdeghijklmnopqrtuvwxyz
+    
+    '''
+    attemps = attemps.lower()
+    abc = "abcdefghijklmnopqrstuvwxyz"
+    result = ""
+    l = len(attemps)
+    i = 0
+    temp = ""
+    for letter in abc:
+            if letter in attemps:
+                pass
+            elif letter not in attemps:
+                result = result + letter
+            
+    
+    return result
