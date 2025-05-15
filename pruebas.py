@@ -41,8 +41,8 @@ import ahorcado as fc
 
 #Puebas pickWord
 
-a = fc.pickWord("Hola,Cómo,Estás", ",")
-print(a)
+#a = fc.pickWord("Hola,Cómo,Estás", ",")
+#print(a)
 
 #b = fc.pickWord(superheroes, ", ")
 #print(b)
