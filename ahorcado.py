@@ -279,3 +279,63 @@ def obtainAvaliableLetters(attemps):
             
     
     return result
+
+def verifyEnteredLetter(letter, attemps):
+    '''
+    Firma:
+        (string,string) -> (bool)
+        
+    Sinopsis:
+        Devuelve True si la letra ingresada se encuentra dentro del string de letras intentadas.  
+        
+    Entradas:
+        - letra: Letra a verificar
+        - letrasIntentadas: String con las letras a comparar
+    Salidas:
+        - returns: La función devuelve False si ninguna la letra no se encuentra en ninguna de la 
+                   lista. En caso contrario, devuelve True.
+    
+    Ejemplos de uso:
+        >>> letrasIntentadas = 'abfs'
+        >>> verificarLetraIngresada('z',letrasIntentadas)
+        False
+        
+        >>> verificarLetraIngresada('x','vwxyz')
+        True
+    '''
+    letter = letter.lower()
+    attemps = attemps.lower()
+    condition = True
+    
+    if letter not in attemps:
+        condition = False
+    
+    return condition
+
+def guessedWord(word, attemps):
+    '''
+    Firma:
+        (string,string) -> (bool)
+        
+    Sinopsis:
+        Determina si con las letras ingresadas se puede formar la palabra secreta.
+        
+    Entradas:
+        - palabra: Palabra o frase a verificar
+        - letrasIntentadas: String con las letras a comparar
+    Salidas:    
+        - returns: Devuelve True si todas las letras de palabra se encuentran en letrasIntentadas, False en caso contrario.
+             
+    Ejemplos de uso:
+        >>> palabraAdivinada('bilbo','bsnlio')
+        True
+        
+        >>> palabraAdivinada('karman','cam')
+        False
+        
+    '''
+    word = word.lower()
+    attemps = attemps.lower()
+    
+    condition = all(letter in attemps for letter in word)
+    return condition

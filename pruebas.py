@@ -57,5 +57,24 @@ import ahorcado as fc
 
 #Pruebas obtainAvaliableLetters
 
-a = fc.obtainAvaliableLetters("Abfs")
-print(a)
+#a = fc.obtainAvaliableLetters("Abfs")
+#print(a)
+
+#a = fc.obtainAvaliableLetters("efghijk")
+#print(a)
+
+#Pruebas verifyEnteredLetter
+
+#attemps = "akysahbflasifbl"
+#print(fc.verifyEnteredLetter("A","avksrjgbk"))
+
+#attemps = "aeiow"
+#print(fc.verifyEnteredLetter("X", "rjnlkgnklra"))
+
+#Pruebas guessedWord
+
+#attemps = "ljkhlafvjJKFEB"
+#print(fc.guessedWord("hOla", attemps))
+
+#attemps = "ljkhlafvjJKFEBoA"
+#print(fc.guessedWord("HoLA", attemps))
