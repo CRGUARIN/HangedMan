@@ -71,11 +71,11 @@ def inputSecret():
     abc = "abcdefghijklmnopqrstuvwxyz"
     
     while True:
-        secret = input("Ingrese la palabra o frase oculta: ").lower()
+        secret = input("Enter the hidden word or phrase: ").lower()
         if all(letra in abc for letra in secret) and secret != "":
             return secret
         else:
-            print("Entrada inválida. Intente de nuevo.")
+            print("Invalid input, please try again")
 
 def loadWords(a):
     '''
@@ -157,7 +157,7 @@ def pickWord(a, b):
         Función que permite seleccionar una palabra o frase secreta correspondiente a una posicion 
         dada de un conjunto de palabras separadas por un delimitador.  
     
-    Entradas y salidas:
+    Entradas:
         - palabras: Conjunto de palabras o frases secretas separadas por un delimitador
         - separador: Delimitador que separa una palabra o frase secreta de otra
     
@@ -300,7 +300,7 @@ def verifyEnteredLetter(letter, attemps):
         >>> verificarLetraIngresada('z',letrasIntentadas)
         False
         
-        >>> verificarLetraIngresada('x','vwxyz')
+        >>> verificarLetraIngresada('x','vwxyz')S
         True
     '''
     letter = letter.lower()

@@ -65,8 +65,8 @@ import ahorcado as fc
 
 #Pruebas verifyEnteredLetter
 
-#attemps = "akysahbflasifbl"
-#print(fc.verifyEnteredLetter("A","avksrjgbk"))
+#attemps = "akysahbflaosifbl"
+#print(fc.verifyEnteredLetter("h",attemps))
 
 #attemps = "aeiow"
 #print(fc.verifyEnteredLetter("X", "rjnlkgnklra"))
