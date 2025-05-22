@@ -68,7 +68,7 @@ def inputSecret():
     '''
     
     # Cuerpo de la función
-    abc = "abcdefghijklmnopqrstuvwxyz"
+    abc = "abcdefghijklmnopqrstuvwxyz "
     
     while True:
         secret = input("Enter the hidden word or phrase: ").lower()
@@ -242,7 +242,10 @@ def obtainGuessedPart(word,attemps):
             if first and i == 0:
                 result = result.upper()
         else:
-            result = result + "_" + " "
+            if temp != " ":
+                result = result + "_" + " "
+            elif temp == " ":
+                result = result + "  "
         i = i+1
     return result
 
@@ -334,6 +337,7 @@ def guessedWord(word, attemps):
         False
         
     '''
+    word = word.replace(" ", "")
     word = word.lower()
     attemps = attemps.lower()
     

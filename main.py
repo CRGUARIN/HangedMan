@@ -22,7 +22,6 @@ again = "y"
 fileWords = fc.loadWords("/home/crguarinm/Documentos/UdeA/Informática 1/Unidad 4/HangedMan/superHeroes.txt")
 
 while again == "y":
-    k = 0
 #Selecting gamemode
     gameMode = int(input("""
 Game modes
@@ -35,9 +34,9 @@ Selected game mode: """))
         secret = fc.inputSecret()
     elif gameMode == 2:
         secret = fc.pickWord(fileWords, ", ")
-    lenSecret = len(secret)
     #Each round
     round = "y"
+
     while round == "y":
         
         #Showing statistics   
@@ -53,7 +52,7 @@ Avaliable letters: {fc.obtainAvaliableLetters(attempedLetters)}
             letter = letter.lower()
             
             #Verifying if it is a letter
-            if letter >= "a" and letter <= "z":
+            if letter.isalpha():
                 
                 #Verifying if it is only one
                 if len(letter) == 1:
@@ -79,32 +78,26 @@ Avaliable letters: {fc.obtainAvaliableLetters(attempedLetters)}
         
 
         #Breaking the cycle when the user loses all the available attempts
-            if attempCount == 0:
-                next= ""
-                next = int(input(f"""
+        if attempCount == 0:
+            next= ""
+            next = int(input(f"""
 The secret word was {secret}
 Would you like to play again? (Yes = 1 ; No = 2)
 """))
-                if next == 1:
-                    attempedLetters = ""
-                    attempCount = 8
-                    break
-                else:
-                    print("Thanks For playing")
-                    again = "N"
-                    round = "n"
-                    break
-            else:
-                print("Enter a valid option")
+            if next == 1:
+                attempedLetters = ""
+                attempCount = 8
+                break
+            elif next == 2:
+                print("Thanks For playing")
+                again = "N"
+                round = "n"
+                break
         
-
+        
         #Breaking the cycle when the user guesses all the letters
-
-        if letter in secret:
-            k = k+1
-        letter = ""
-        
-        if k == lenSecret: 
+        condition = fc.guessedWord(secret, attempedLetters)
+        if condition == True: 
             next = ""
             next = int(input("""¡CONGRATULATIONS! Would you like to play again? (Yes = 1 ; No = 2)
 """))
@@ -117,3 +110,4 @@ Would you like to play again? (Yes = 1 ; No = 2)
                 again = "N"
                 round = "n"
                 break        
+            #Solucionar los espacios en las palabras secretas
